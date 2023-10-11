@@ -2,10 +2,11 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import { Button , FormControl, Input, InputLabel } from '@material-ui/core';
-import ListIcon from '@material-ui/icons/List';
 import Todo from './Todo';
 import { db } from './firebase';
 import firebase from "firebase/compat/app";
+import AddCircleOutlinedIcon from '@material-ui/icons/AddCircleOutlined';
+import Navbar from './Navbar';
 
 
 function App() {
@@ -37,25 +38,25 @@ function App() {
 
   return (
     <div className="App">
-    <h1>
-      <ListIcon className='heading_icon'/> To-Do List
-    </h1>
+      <Navbar />
+      <div className='gradient-background'>
       <form>
-
-        <FormControl>
+      
+        <FormControl >
           <InputLabel>Write a task</InputLabel>
           <Input value={input} onChange={event => setInput(event.target.value)} />
         </FormControl>
 
-        <Button disabled={!input}  type="submit" onClick={addTodo} variant="contained" color="primary"> ➕Add Task</Button>
+        <Button disabled={!input}  type="submit" onClick={addTodo} variant="contained"><AddCircleOutlinedIcon/><b> Add Task</b></Button>
         
-        </form>
+      </form>
+        
         <ul>
           {todos.map(todo => (
             <Todo todo={todo} />
           ))}
         </ul>
-      
+        </div>
     </div>
   );
 }

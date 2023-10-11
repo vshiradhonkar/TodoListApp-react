@@ -1,3 +1,24 @@
-.todo_list {
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
+  font-family: "Tourney", sans-serif;
+}
+.todo_list {
+  width: 100%;
+  max-width: auto;
+  max-height: auto;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 0.75rem 2rem 0 rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  opacity: 1;
+}
+.edit_icon,
+.delete_icon {
+  opacity: 1;
+  margin-right: 20px;
+  z-index: 1;
 }

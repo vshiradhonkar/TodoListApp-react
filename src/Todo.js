@@ -38,13 +38,14 @@ function Todo(props) {
 
 return (
 <div className='todo'>
-    <Modal open={open}
+    <Modal className="modal" open={open}
         onClose={e=> 
             setOpen(false)}>
+
             <div className={classes.paper}>
-                <h1>i am a model</h1>
+                <h1 className='modal_heading'>Edit Your Task</h1>
                 <input placeholder={props.todo.todo} value={input} onChange={event =>setInput(event.target.value)}/>
-                <Button onClick={updateTodo}>Update Task</Button>
+                <Button onClick={updateTodo}><b>Update Task</b></Button>
             </div>
 
     </Modal>
@@ -54,8 +55,8 @@ return (
             </ListItemAvatar>
                 <ListItemText primary={props.todo.todo} secondary='' />
         </ListItem>
-        <EditIcon onClick={e => setOpen(true)} />
-        <DeleteForeverIcon onClick={event => db.collection('todos').doc(props.todo.id).delete()} />
+        <EditIcon className='edit_icon' onClick={e => setOpen(true)} />
+        <DeleteForeverIcon className='delete_icon' onClick={event => db.collection('todos').doc(props.todo.id).delete()} />
     </List>
 </div> 
 )
